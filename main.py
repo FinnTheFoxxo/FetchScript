@@ -26,10 +26,10 @@ def main():
         if fetch == None:
             script.append(src)
         elif not "https://" in fetch:
-            print(f"\033[1;33mhttps://{fix}/{fetch}\n\033[0m")
+            print(f"\033[0;32mhttps://{fix}/{fetch}\033[0m")
             url.append(f"https://{fix}/{fetch}")
         else:
-            print(f"\033[1;33m{fetch}\n\033[0m")
+            print(f"\033[0;32m{fetch}\033[0m")
             url.append(fetch)
     if script:
         for line in script:
@@ -37,7 +37,6 @@ def main():
             script_dump.write(f"{str(line)}\n")
     if url:
         for line in url:
-            print(f"\033[0;32m{line}\033[0m")
             url_dump.write(f"{str(line)}\n")
         for line in url:
             if len(line) != 0:
