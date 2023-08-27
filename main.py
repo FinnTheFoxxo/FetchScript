@@ -26,19 +26,21 @@ def main():
         if fetch == None:
             script.append(src)
         elif not "https://" in fetch:
+            print(f"\033[1;33mhttps://{fix}/{fetch}\n\033[0m")
             url.append(f"https://{fix}/{fetch}")
         else:
+            print(f"\033[1;33m{fetch}\n\033[0m")
             url.append(fetch)
-    if len(script) != 0:
+    if script:
         for line in script:
             print(f"\033[1;33m{line}\033[0m")
             script_dump.write(f"{str(line)}\n")
-    if len(url) != 0:
+    if url:
         for line in url:
             print(f"\033[0;32m{line}\033[0m")
             url_dump.write(f"{str(line)}\n")
         for line in url:
-            os.system(f"wget -P \"domains/{fix}/scripts\" -U \"Mozilla/5.0 (Windows NT 10.0; WOW64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.5666.197 Safari/537.36\" {line}")
-
+            if len(line) != 0:
+                os.system(f"wget -P \"domains/{fix}/scripts\" -U \"Mozilla/5.0 (Windows NT 10.0; WOW64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.5666.197 Safari/537.36\" {line}")
 main()
 
