@@ -30,12 +30,10 @@ def main():
         else:
             url.append(fetch)
     if len(script) != 0:
-        print(script)
         for line in script:
             print(f"\033[1;33m{line}\033[0m")
             script_dump.write(f"{str(line)}\n")
     if len(url) != 0:
-        print(url)
         for line in url:
             print(f"\033[0;32m{line}\033[0m")
             url_dump.write(f"{str(line)}\n")
